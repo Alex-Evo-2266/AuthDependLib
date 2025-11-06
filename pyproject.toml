@@ -8,8 +8,17 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 fastapi = "^0.115.2"
+httpx = "^0.28.1"
+pytest = "^8.4.2"
 
+
+[tool.poetry.group.dev.dependencies]
+pytest-asyncio = "^1.2.0"
+pytest-lazy-fixture = "^0.6.3"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

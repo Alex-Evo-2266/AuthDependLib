@@ -38,7 +38,9 @@ def auth_privilege_dep(pivilege:str):
 				if privilege_item == pivilege:
 					return headers.X_user_id
 			raise HTTPException(status_code=403, detail="invalid privilege")
+		except HTTPException:
+			raise
 		except Exception as e:
 			logger.warning(f"token_dep error {e}")
-			raise HTTPException(status_code=403, detail="invalid privilege")
+			raise HTTPException(status_code=400, detail="invalid data")
 	return _auth_privilege_dep
